@@ -1,6 +1,9 @@
-PROGS = define exit_code str_to_int 
+PROGS = define_test exit_code str_to_int 
 
 all : ${PROGS}
+
+define_test : define_test.c
+	gcc -o define_test define_test.c
 
 clean :
 	rm -rf ${PROGS}
