@@ -1,0 +1,24 @@
+PROGS = driver
+
+OBJS = add_c.o add_s.o iseq_c.o iseq_s.o
+CFLAGS = -g
+
+all : ${PROGS}
+
+add_c.o : add_c.c
+	gcc -c -o add_c.o add_c.c
+
+add_s.o : add_s.s
+	as -o add_s.o add_s.s
+
+iseq_c.o : iseq_c.c
+	gcc -c -o iseq_c.o iseq_c.c
+
+iseq_s.o : iseq_s.s
+	as -o iseq_s.o iseq_s.s
+
+driver : driver.c ${OBJS}
+	gcc -o driver driver.c ${OBJS}
+
+clean :
+	rm -rf ${PROGS} ${OBJS}
