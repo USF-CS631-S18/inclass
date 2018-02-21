@@ -3,10 +3,10 @@
  
 iseq_s:
     cmp r0, r1
-    beq eq
+    beq equal
     mov r0, #0
     b end
-eq:  
+equal:
     mov r0, #1
 end:
 	bx lr      
